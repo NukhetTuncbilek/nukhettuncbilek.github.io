@@ -27,7 +27,7 @@
                 </div> 
                 <div class="col-md-6 my-auto">
                         <img id="image" class="rounded-image">
-                        <p id="caption"></p>
+                        <div class="container text-center"><p id="caption"></p></div>
                         <script>
                                 const el = document.getElementById("image")
                                 const caption = document.getElementById("caption")
@@ -53,14 +53,14 @@
                                         random_image_name = random_image_name.split("\"")[1]
                                         el.src = photodir + random_image_name;
 
-                                        str = random_image_name.split(".")[0]
+                                        str = random_image_name.split(".")[0] + ".txt"
 
                                         var altreq = new XMLHttpRequest()
                                         altreq.onload = function(){
                                                 el.title = this.responseText
                                                 caption.innerHTML = this.responseText
                                         }
-                                        altreq.open("GET", "https://math.wisc.edu/math-faculty/" + str, "true");
+                                        altreq.open("GET", "https://raw.githubusercontent.com/ynst/website/main/assets/titles/" + str, "true");
                                         altreq.send();
                                 }
                                 photoreq.open("GET", "https://math.wisc.edu/math-faculty/", "true");
