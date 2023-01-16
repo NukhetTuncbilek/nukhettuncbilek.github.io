@@ -19,64 +19,64 @@
 
 <div class="container p-3"> 
         <div class="row">
-                <div class="col-md-6 text-center my-auto">
-                        <p>My name is Yunus Tunçbilek (also known as Yunus Tuncbilek). 
-                                I am a graduate student at University of Wisconsin, Madison. 
-                                My area is pure mathematics, more specifically, Lie algebras 
-                                and their representations.</p> 
-                </div> 
-                <div class="col-md-6 my-auto">
-                        <img id="image" class="rounded-image">
-                        <div class="container text-center"><p id="caption"></p></div>
-                        <script>
-                                const el = document.getElementById("image")
-                                const caption = document.getElementById("caption")
-                                const photodir = 'assets/photos/'
-                                const titledir = 'assets/titles/'
+                <div class="col-sm-6">
+                        <ul>
+                                <li>
+                                        <a href="./welcome.html">
+                                                A Welcome
+                                        </a>
+                                </li>
 
-                                var photoreq = new XMLHttpRequest();
-                                photoreq.onload = function(){
-                                        photos_page = this.responseText;
+                                <li>
+                                        <a href="https://math.wisc.edu/undergraduate/wes/">
+                                                Wisconsin Emerging Scholars
+                                        </a>
+                                        <p class="small">Updated: Jan 16, 2023.</p> 
+                                </li>
 
-                                        // regex that will search for the photo filename
-                                        searchForPhoto = /"([1-10]|[A-Z]|[a-z])*(.jpeg|.JPG)"/g;
+                                <li>
+                                        <a href="./turkish.html">
+                                                Learn Turkish with Yunus
+                                        </a>
+                                        <p class="small">Updated: Jan 16, 2023.</p> 
+                                </li>
 
-                                        // photo file name  array
-                                        files = []
-                                        var f = ""
+                                <li>
+                                        <a href="./reading.html">
+                                                My Current Reading
+                                        </a>
+                                        <p class="small">Updated: Jan 16, 2023.</p> 
+                                </li>
+                        </ul>
+                </div>
 
-                                        do {
-                                                f = searchForPhoto.exec("\"dakshana.jpeg\"\"babamla.JPG\"\"sse.JPG\"\"annemle.JPG\"");
+                <div class="col-sm-6">
+                        <ul>
+                                <li>
+                                        <a href="https://www.youtube.com/channel/UCbsMItHB-87bzLpYTRAz4bg">
+                                                Invest in Turkey with Yunus
+                                        </a>
+                                        <p class="small">New videos will come out in Fall 2023!</p>
+                                </li>
 
-                                                if (f){
-                                                        files.push(f[0])
-                                                }
-                                        }while(f)
+                                <li>
+                                        <a href="https://www.linkedin.com/in/tuncbilek/">
+                                                LinkedIn
+                                        </a>
+                                </li>
 
-                                        // pick a random file name
-                                        random_file_name =  files[Math.floor(Math.random()*files.length)];
+                                <li>
+                                        <a href="./cv.html">
+                                                CV
+                                        </a>
+                                </li>
 
-                                        // get rid of the quotations
-                                        random_file_name = random_file_name.split("\"")[1]
-
-                                        // make the image source the desired file name
-                                        el.src = photodir + random_file_name;
-
-                                        // change the extension to .txt
-                                        random_file_name_txt = random_file_name.split(".")[0] + ".txt"
-
-                                        // do another request to get the inputs of the text file for the title
-                                        var altreq = new XMLHttpRequest()
-                                        altreq.onload = function(){
-                                                el.title = this.responseText
-                                                caption.innerHTML = this.responseText
-                                        }
-                                        altreq.open("GET", "https://raw.githubusercontent.com/ynst/website/main/" + titledir + random_file_name_txt, "true");
-                                        altreq.send();
-                                }
-                                photoreq.open("GET", "https://math.wisc.edu/math-faculty/", "true");
-                                photoreq.send();
-                        </script>         
+                                <li>
+                                        <a href="https://finance.yahoo.com/quote/AGESA.IS/">
+                                                AgeSA Stock Information
+                                        </a>
+                                </li>
+                        </ul>
                 </div>
         </div>
 </div>

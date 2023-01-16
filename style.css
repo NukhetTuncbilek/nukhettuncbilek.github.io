@@ -9,3 +9,30 @@ img {
 img.rounded-image {
     border-radius: 15px;
 }
+
+ul li { padding: 5px 0px; }
+
+h3 {
+    padding: 5px;
+}
+
+a:link {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: darkblue;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
