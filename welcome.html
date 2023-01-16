@@ -46,7 +46,7 @@
                                         var f = ""
 
                                         do {
-                                                f = searchForPhoto.exec("\"dakshana.jpeg\"\"babamla.JPG\"\"sse.JPG\"\"annemle.JPG\"");
+                                                f = searchForPhoto.exec(this.responseText);
 
                                                 if (f){
                                                         files.push(f[0])
@@ -71,10 +71,10 @@
                                                 el.title = this.responseText
                                                 caption.innerHTML = this.responseText
                                         }
-                                        altreq.open("GET", "https://raw.githubusercontent.com/ynst/website/main/" + titledir + random_file_name_txt, "true");
+                                        altreq.open("GET", titledir + random_file_name_txt, "true");
                                         altreq.send();
                                 }
-                                photoreq.open("GET", "https://math.wisc.edu/math-faculty/", "true");
+                                photoreq.open("GET", photodir, "true");
                                 photoreq.send();
                         </script>         
                 </div>
