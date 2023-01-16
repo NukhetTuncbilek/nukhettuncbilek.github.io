@@ -37,31 +37,40 @@
                                 var photoreq = new XMLHttpRequest();
                                 photoreq.onload = function(){
                                         photos_page = this.responseText;
+
+                                        // regex that will search for the photo filename
                                         searchForPhoto = /"([1-10]|[A-Z]|[a-z])*(.jpeg|.JPG)"/g;
+
+                                        // photo file name  array
                                         files = []
                                         var f = ""
 
                                         do {
-                                                f = searchForPhoto.exec("\"dakshana.jpeg\"\"babamla.JPG\"\"sse.JPG\"");
+                                                f = searchForPhoto.exec("\"dakshana.jpeg\"\"babamla.JPG\"\"sse.JPG\"\"annemle.JPG\"");
 
                                                 if (f){
                                                         files.push(f[0])
                                                 }
                                         }while(f)
 
-                                        random_image_name =  files.sort()[Math.floor(Math.random()*files.length)];
+                                        // pick a random file name
+                                        random_file_name =  files.sort()[Math.floor(Math.random()*files.length)];random_file_name
 
-                                        random_image_name = random_image_name.split("\"")[1]
-                                        el.src = photodir + random_image_name;
+                                        // get rid of the quotations
+                                        random_file_name = random_file_name.split("\"")[1]
 
-                                        str = random_image_name.split(".")[0] + ".txt"
+                                        // make the image source the desired file name
+                                        el.src = photodir + random_file_name;
+
+                                        // change the extension to .txt
+                                        random_file_name_txt = random_file_name.split(".")[0] + ".txt"
 
                                         var altreq = new XMLHttpRequest()
                                         altreq.onload = function(){
                                                 el.title = this.responseText
                                                 caption.innerHTML = this.responseText
                                         }
-                                        altreq.open("GET", "https://raw.githubusercontent.com/ynst/website/main/" + titledir + str, "true");
+                                        altreq.open("GET", "https://raw.githubusercontent.com/ynst/website/main/" + titledir + random_file_name_txt, "true");
                                         altreq.send();
                                 }
                                 photoreq.open("GET", "https://math.wisc.edu/math-faculty/", "true");
