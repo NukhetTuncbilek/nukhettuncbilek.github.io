@@ -65,6 +65,7 @@
                                         // change the extension to .txt
                                         random_file_name_txt = random_file_name.split(".")[0] + ".txt"
 
+                                        // do another request to get the inputs of the text file for the title
                                         var altreq = new XMLHttpRequest()
                                         altreq.onload = function(){
                                                 el.title = this.responseText
