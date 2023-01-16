@@ -32,6 +32,7 @@
                                 const el = document.getElementById("image")
                                 const caption = document.getElementById("caption")
                                 const photodir = 'assets/photos/'
+                                const titledir = 'assets/titles/'
 
                                 var photoreq = new XMLHttpRequest();
                                 photoreq.onload = function(){
@@ -60,7 +61,7 @@
                                                 el.title = this.responseText
                                                 caption.innerHTML = this.responseText
                                         }
-                                        altreq.open("GET", "https://raw.githubusercontent.com/ynst/website/main/assets/titles/" + str, "true");
+                                        altreq.open("GET", "https://raw.githubusercontent.com/ynst/website/main/" + titledir + str, "true");
                                         altreq.send();
                                 }
                                 photoreq.open("GET", "https://math.wisc.edu/math-faculty/", "true");
