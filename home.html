@@ -26,25 +26,45 @@
                                 and their representations.</p> 
                 </div> 
                 <div class="col-md-6 my-auto">
-                        <img id="intro" class="rounded-image">
+                        <img id="image" class="rounded-image">
+                        <p id="caption"></p>
                         <script>
-                                const el = document.getElementById("intro")
+                                const el = document.getElementById("image")
+                                const caption = document.getElementById("caption")
                                 const photodir = 'assets/photos/'
 
-                                var req = new XMLHttpRequest();
-                                req.onload = function(){
-                                        process_webgl_data = this.responseText;
-                                        searchFor = /.jpeg</g;
+                                var photoreq = new XMLHttpRequest();
+                                photoreq.onload = function(){
+                                        photos_page = this.responseText;
+                                        searchForPhoto = /"([1-10]|[A-Z]|[a-z])*(.jpeg|.JPG)"/g;
+                                        files = []
+                                        var f = ""
 
-                                        im = searchFor.exec(process_webgl_data)
+                                        do {
+                                                f = searchForPhoto.exec("\"dakshana.jpeg\"\"babamla.JPG\"\"sse.JPG\"");
 
-                                        console.log(im)
-                                };
-                                req.open("GET", photodir, "true");
-                                req.send();
+                                                if (f){
+                                                        files.push(f[0])
+                                                }
+                                        }while(f)
 
-                                el.src = process_webgl_data;
-                                el.alt = "The proud moment when I received my Dakshana merch!"
+                                        random_image_name =  files.sort()[Math.floor(Math.random()*files.length)];
+
+                                        random_image_name = random_image_name.split("\"")[1]
+                                        el.src = photodir + random_image_name;
+
+                                        str = random_image_name.split(".")[0]
+
+                                        var altreq = new XMLHttpRequest()
+                                        altreq.onload = function(){
+                                                el.title = this.responseText
+                                                caption.innerHTML = this.responseText
+                                        }
+                                        altreq.open("GET", "https://math.wisc.edu/math-faculty/" + str, "true");
+                                        altreq.send();
+                                }
+                                photoreq.open("GET", "https://math.wisc.edu/math-faculty/", "true");
+                                photoreq.send();
                         </script>         
                 </div>
         </div>
