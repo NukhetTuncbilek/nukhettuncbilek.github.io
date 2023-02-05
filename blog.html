@@ -55,13 +55,16 @@
                                 var post_req = new XMLHttpRequest;
                                 post_req.onload = function(){
                                         // create container that TeX will go in
-                                        var container = document.createElement("div")
-                                        container.className = "container p-3 border"
+                                        var big_container = document.createElement("div")
+                                        var small_container = document.createElement("div")
+                                        big_container.className = "container p-3 border"
+                                        small_container.className = "container p-3 border"
                                         
                                         var p = document.createElement("p")
                                         p.innerHTML = this.responseText
-                                        container.append(p)
-                                        top_container.append(container)
+                                        small_container.append(p)
+                                        big_container.append(small_container)
+                                        top_container.append(big_container)
 
                                         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                                 }
