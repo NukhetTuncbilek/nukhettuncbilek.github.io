@@ -52,7 +52,6 @@
                                 tex_file = this.responseText
 
                                 generator = latexjs.parse(tex_file, { generator: generator })
-                                document.head.appendChild(generator.stylesAndScripts(""))
                                 document.body.appendChild(generator.domFragment())   
                         }
 
