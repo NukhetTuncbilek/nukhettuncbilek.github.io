@@ -55,7 +55,7 @@
                                 // get rid of the > and <
                                 post_file_name = post_file_name.split(">")[1].split("<")[0]
 
-                                var post_req = XMLHttpRequest;
+                                var post_req = new XMLHttpRequest;
                                 post_req.onload = function(){
                                         document.getElementById("post").innerHTML = this.responseText
                                         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
