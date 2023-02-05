@@ -39,13 +39,14 @@
         <script>
                 var req = new XMLHttpRequest;
                 req.onload = function(){
+                        console.log(this.responseText)
                         search_for_tex = /"([1-10]|[A-Z]|[a-z])*(.tex)"/g
                         posts = []
                         f = ""
                         do{
                                 f = search_for_tex.exec(this.responseText)
                                 if (f){
-                                        posts.push(f[0])
+                                        posts.push(f)
                                 }
                         } while(f)
 
