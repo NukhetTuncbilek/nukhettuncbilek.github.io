@@ -6,6 +6,10 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <title> Wisconsin Emerging Scholars </title>
                 <link rel="stylesheet" href="style.css">
+                <script type="module">
+                        import { LaTeXJSComponent } from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.mjs"
+                        customElements.define("latex-js", LaTeXJSComponent)
+                </script>
         </head>
 
 <body>
@@ -32,7 +36,7 @@
 
 <div class="container p-3">
         <div class="container p-3 border">
-                <p id="post"></p>
+                <latex-js id="post"></latex-js>
         </div>
 
         <script>
