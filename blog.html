@@ -42,7 +42,7 @@
         <script>
                 var req = new XMLHttpRequest;
                 req.onload = function(){
-                        document.getElementById("post").innerHTML = this.responseText
+                        document.getElementById("post").innerHTML = MathJax.typeset(this.responseText)
                 }
 
                 req.open("GET", "blog_posts/Feb 3")
