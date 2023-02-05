@@ -42,7 +42,9 @@
 
 <div class="container p-3">
         <div class="container p-3 border">
-                <latex-js id="post">hi.</latex-js>
+                <latex-js id="post">
+
+                </latex-js>
         </div>
 
         <script>
@@ -53,7 +55,7 @@
                         post.innerHTML = this.responseText
                 }
 
-                req.open("GET", "blog_posts/Feb 3")
+                req.open("GET", "latex_header")
                 req.send()
         </script>
 </div>
