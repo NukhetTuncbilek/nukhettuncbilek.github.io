@@ -21,8 +21,7 @@
 
 <div class="container p-3"> 
         <div class="row">
-                <div class="col-md-6 text-center my-auto" id="first_post">
-                </div> 
+                <div class="col-md-6 text-center my-auto" id="first_post"></div> 
                 <div class="col-md-6 my-auto">
                         <img class="rounded-image" src="office.jpeg">
                         <div class="container text-center"><p id="caption">My desk at Van Vleck Hall. </p></div>
@@ -65,7 +64,7 @@
                                         big_container.append(small_container)
                                         first_post = document.getElementById("first_post")
                                         console.log(first_post.innerHTML)
-                                        if (first_post.innerHTML == " "){
+                                        if (first_post.innerHTML == ""){
                                                 first_post.append(big_container)
                                         } else{
                                                 top_container.append(big_container)
