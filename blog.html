@@ -50,7 +50,12 @@
                         } while(f)
 
                         while(posts.length>0){
-                                console.log(posts.pop())
+                                post_file_name = posts.pop()
+
+                                // get rid of the < and >
+                                post_file_name = post_file_name.split(">")[1].split("<")[0]
+
+                                console.log(post_file_name)
                         }
                         // document.getElementById("post").innerHTML = this.responseText
                         // MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
