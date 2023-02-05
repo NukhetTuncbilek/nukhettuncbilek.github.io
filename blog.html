@@ -44,15 +44,16 @@
                                 }
                         } while(f)
 
-                        while(posts.length>0){
-                                post_file_name = posts.pop()
+                        for(let i=0;i<posts.length;i++){
+                                post_file_name = posts[i]
 
                                 // get rid of the > and <
                                 post_file_name = post_file_name.split(">")[1].split("<")[0]
 
                                 var post_req = new XMLHttpRequest;
                                 post_req.onload = function(){
-                                        // create container that TeX will go in
+                                        // create containers that TeX will go in
+                                        // small/big container helps borders to be separated
                                         var big_container = document.createElement("div")
                                         var small_container = document.createElement("div")
                                         big_container.className = "container p-3"
@@ -63,8 +64,8 @@
                                         small_container.append(p)
                                         big_container.append(small_container)
                                         first_post = document.getElementById("first_post")
-                                        console.log(first_post.innerHTML)
-                                        if (first_post.innerHTML == ""){
+
+                                        if (i=0){//first post
                                                 first_post.append(big_container)
                                         } else{
                                                 top_container.append(big_container)
