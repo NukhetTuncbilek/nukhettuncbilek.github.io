@@ -52,6 +52,13 @@
 
                                 var post_req = new XMLHttpRequest;
                                 post_req.onload = function(){
+                                        post = this.responseText
+                                        
+                                        // below code replaces $...$ with \(...\)
+                                        count = post.count("$")
+                                        correct_delim = ["\(" if i % 2 else "\)" for i in range(count)]
+                                        post.replace("$", "{}").format(*correct_delim)
+
                                         // create containers that TeX will go in
                                         // small/big container helps borders to be separated
                                         var big_container = document.createElement("div")
