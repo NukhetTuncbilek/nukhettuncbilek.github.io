@@ -52,13 +52,18 @@
                         while(posts.length>0){
                                 post_file_name = posts.pop()
 
-                                // get rid of the < and >
+                                // get rid of the > and <
                                 post_file_name = post_file_name.split(">")[1].split("<")[0]
 
-                                console.log(post_file_name)
+                                var post_req = XMLHttpRequest;
+                                post_req.onload = function(){
+                                        document.getElementById("post").innerHTML = this.responseText
+                                        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                                }
+
+                                post_req.open("GET", "blog_posts/"+post_file_name)
+                                post_req.send()
                         }
-                        // document.getElementById("post").innerHTML = this.responseText
-                        // MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                 }
 
                 req.open("GET", "blog_posts")
