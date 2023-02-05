@@ -30,8 +30,22 @@
         </div>
 </div>
 
-<div class="container p-3 border">
-        
+<div class="container p-3">
+        <div class="container p-3 border">
+                <p index="post"></p>
+        </div>
+
+        <script>
+                post = document.getElementById("post")
+
+                var req = new XMLHttpRequest;
+                req.onload = function(){
+                        post.innerHTML = this.responseText
+                }
+
+                req.open("GET", "./blog_posts/Feb 3")
+                req.send()
+        </script>
 </div>
 
 <div class="container-fluid bg-dark"> 
