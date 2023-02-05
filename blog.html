@@ -48,16 +48,21 @@
         </div>
 
         <script>
-                post = document.getElementById("post")
+                var generator = new latexjs.HtmlGenerator({ hyphenate: false })
 
                 var req = new XMLHttpRequest;
                 req.onload = function(){
-                        post.innerHTML = this.responseText
+                        
+                        tex_file = this.responseText
 
                         var req2 = new XMLHttpRequest
 
                         req2.onload = function(){
-                                post.innerHTML += this.responseText
+                                tex_file += this.responseText
+
+                                generator = latexjs.parse(tex_file, { generator: generator })
+                                document.head.appendChild(generator.stylesAndScripts(""))
+                                document.body.appendChild(generator.domFragment())   
                         }
 
                         req2.open("GET", "blog_posts/Feb 3")
