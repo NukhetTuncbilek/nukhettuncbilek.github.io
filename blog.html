@@ -21,8 +21,7 @@
 
 <div class="container p-3"> 
         <div class="row">
-                <div class="col-md-6 text-center my-auto">
-                        <p> This is a blog where I post what I am working on currently. </p> 
+                <div class="col-md-6 text-center my-auto" id="first_post">
                 </div> 
                 <div class="col-md-6 my-auto">
                         <img class="rounded-image" src="office.jpeg">
@@ -64,7 +63,13 @@
                                         p.innerHTML = this.responseText
                                         small_container.append(p)
                                         big_container.append(small_container)
-                                        top_container.append(big_container)
+
+                                        if (posts.length == 1){
+                                                first_post = document.getElementById("first_post")
+                                                first_post.append(big_container)
+                                        } else{
+                                                top_container.append(big_container)
+                                        }
 
                                         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                                 }
