@@ -45,7 +45,7 @@
                         } while(f)
 
                         for(let i=0;i<posts.length;i++){
-                                post_file_name = posts[i]
+                                post_file_name = posts[posts.length - i]
 
                                 // get rid of the > and <
                                 post_file_name = post_file_name.split(">")[1].split("<")[0]
