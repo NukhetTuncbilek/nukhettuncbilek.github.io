@@ -1,3 +1,38 @@
+% Math LaTeX class
+
+% the following two lines are required
+% to make the class
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{mymathclass}
+
+
+\LoadClass[12pt]{article} 
+
+
+% load in some commonly needed packages 
+\RequirePackage{ifthen,amsmath,amssymb,
+    amsthm,bm,graphicx,color, yfonts, enumitem}
+    
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\newtheorem{problem}{Problem}
+
+\newcommand{\trace}[1]{\textrm{trace}(#1)}
+% new page before section
+\AddToHook{cmd/section/before}{\clearpage}
+
+% remove section numbers in table of contents
+\setcounter{secnumdepth}{0}
+
+
+
 Note: $\mathfrak{g}$ doesn't have to an algebra. Like how do you multiply elements? That kind of information is not given in the definition of a Lie algebra.\\
 
 \textbf{Chapter 9, Exercise 2: }Suppose that $\mathfrak{g} \subset M_n(\mathbb{C})$ is a Lie algebra of matrices (with bracket given by $XY-YX$). Prove, without appealing to the PBW theorem, that the map $i:\mathfrak{g}\to U(\mathfrak{g})$ in Theorem 9.7 is injective.
