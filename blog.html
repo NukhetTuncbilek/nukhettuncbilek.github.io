@@ -53,10 +53,9 @@
                                 var post_req = new XMLHttpRequest;
                                 post_req.onload = function(){
                                         post = this.responseText
-                                        const regex = /\$/
 
                                         // below code replaces $...$ with \(...\)
-                                        post = post.split(regex).reduce( (a,b,i) => i %2 == 0 ? a + "\\)" + b : a + "\\(" + b )
+                                        post = post.split(/\$/).reduce( (a,b,i) => i %2 == 0 ? a + "\\)" + b : a + "\\(" + b )
 
                                         // create containers that TeX will go in
                                         // small/big container helps borders to be separated
