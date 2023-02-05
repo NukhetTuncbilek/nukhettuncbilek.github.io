@@ -6,4 +6,3 @@
 \newtheorem{problem}{Problem}
 
 \newcommand{\trace}[1]{\textrm{trace}(#1)}
-
