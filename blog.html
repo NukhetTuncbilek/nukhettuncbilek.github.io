@@ -36,13 +36,14 @@
 
 <div class="container p-3">
         <div class="container p-3 border">
-                <p id="post"></p>
+                <p id="post">\(4_x\)</p>
         </div>
 
         <script>
                 var req = new XMLHttpRequest;
                 req.onload = function(){
                         document.getElementById("post").innerHTML = this.responseText
+                        
                         MathJax.Hub.Typeset()
                 }
 
