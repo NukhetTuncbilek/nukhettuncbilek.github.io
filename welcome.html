@@ -67,13 +67,13 @@
                                         random_file_name_txt = random_file_name.split(".")[0] + ".txt"
 
                                         // do another request to get the inputs of the text file for the title
-                                        var altreq = new XMLHttpRequest()
-                                        altreq.onload = function(){
+                                        var caption_req = new XMLHttpRequest()
+                                        caption_req.onload = function(){
                                                 el.title = this.responseText
                                                 caption.innerHTML = this.responseText
                                         }
-                                        altreq.open("GET", titledir + random_file_name_txt, "true");
-                                        altreq.send();
+                                        caption_req.open("GET", titledir + random_file_name_txt, "true");
+                                        caption_req.send();
                                 }
                                 photoreq.open("GET", photodir, "true");
                                 photoreq.send();
