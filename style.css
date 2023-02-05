@@ -47,3 +47,7 @@ a:link {
 li.home_link {
   min-height: 70px;
 }
+
+div{
+  border-spacing: 5px;
+}
