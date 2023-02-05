@@ -56,16 +56,18 @@
                                         const regex = /\$/g
 
                                         // below code replaces $...$ with \(...\)
-                                        count = post.match(regex).length
-                                        correct_delim = []
-                                        for(let i = 0;i < count; i++){
-                                                if (i % 2 == 0){
-                                                        correct_delim.push('\\(')
-                                                }else{
-                                                        correct_delim.push('\\)')
+                                        count = post.match(regex)
+                                        if (count > 0){
+                                                correct_delim = []
+                                                for(let i = 0;i < count; i++){
+                                                        if (i % 2 == 0){
+                                                                correct_delim.push('\\(')
+                                                        }else{
+                                                                correct_delim.push('\\)')
+                                                        }
                                                 }
+                                                post.replace(regex, correct_delim)
                                         }
-                                        post.replace(regex, correct_delim)
 
                                         // create containers that TeX will go in
                                         // small/big container helps borders to be separated
