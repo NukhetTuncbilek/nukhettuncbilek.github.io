@@ -43,8 +43,8 @@
                 var req = new XMLHttpRequest;
                 req.onload = function(){
                         document.getElementById("post").innerHTML = this.responseText
-                        
-                        MathJax.Hub.Typeset()
+                        console.log(MathJax)
+                        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                 }
 
                 req.open("GET", "blog_posts/Feb 3")
