@@ -34,7 +34,7 @@
                 var link = location.href
                 // grab the ?... in the link
                 specific_TeX_file = ""
-                if (link.indexOf("?")){
+                if (link.includes("?")){
                         specific_TeX_file = link.substring(link.indexOf("?") + 1, link.length)
                 }
 
