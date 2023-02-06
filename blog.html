@@ -74,7 +74,7 @@
                                         post = post.split('---')
 
                                         var link_to_post = document.createElement('a')
-                                        a.href = "./?" + post_file_name
+                                        link_to_post.href = "./?" + post_file_name
 
                                         var header = document.createElement('h3')
                                         header.innerHTML = post[0] + ": " + post[1]
