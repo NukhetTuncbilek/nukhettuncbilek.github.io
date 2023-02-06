@@ -55,7 +55,7 @@
                                         post = this.responseText
 
                                         // below code replaces $...$ with \(...\)
-                                        post = post.split(/\$\$/).reduce( (a,b,i) => i %2 == 0 ? a + "\\[" + b : a + "\\]" + b )
+                                        post = post.split(/\$\$/).reduce( (a,b,i) => i %2 == 0 ? a + "\\]" + b : a + "\\[" + b )
                                         post = post.split(/\$/).reduce( (a,b,i) => i %2 == 0 ? a + "\\)" + b : a + "\\(" + b )
 
                                         // create containers that TeX will go in
