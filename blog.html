@@ -19,7 +19,7 @@
         </div>
 </div>
 
-<div class="container p-3"> 
+<div class="container p-3" id="first_post_container"> 
         <div class="row">
                 <div class="col-xl-6 my-auto" id="first_post"></div> 
                 <div class="col-xl-6 my-auto text-center">
@@ -31,6 +31,10 @@
 
 <div class="container p-3" id="top_container">
         <script>
+                var link = location.href
+                var specific_TeX_file = link.substring(link.indexOf("?") + 1)
+                console.log(specific_TeX_file)
+
                 var top_container = document.getElementById("top_container")
                 var req = new XMLHttpRequest;
                 req.onload = function(){
@@ -69,10 +73,14 @@
                                         
                                         post = post.split('---')
 
+                                        var link_to_post = document.createElement('a')
+                                        a.href = "./?" + post_file_name
+
                                         var header = document.createElement('h3')
                                         header.innerHTML = post[0] + ": " + post[1]
 
-                                        small_container.append(header)
+                                        link_to_post.append(header)
+                                        small_container.append(link_to_post)
 
                                         paragraphs = post[2].split("\n")
                                         while(paragraphs.length > 0){
