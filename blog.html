@@ -138,6 +138,10 @@
                                         f = f.split(">")[1].split("<")[0]
                                         link_to_post.href = "./blog.html?" + f
 
+                                        if (specific_TeX_file != null && specific_TeX_file != ""){
+                                                link_to_post.href = "./blog.html?" + specific_TeX_file
+                                        }
+
                                         var header = document.createElement('h3')
                                         header.innerHTML = post[0] + ": " + post[1]
 
