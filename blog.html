@@ -44,6 +44,7 @@
                         number_regex = /[0-9]*/
                         specific_TeX_file = tex_regex.exec(settings)
                         page_number = Number(number_regex.exec(page_number_regex.exec(settings)))
+                        console.log(page_number)
                 }
 
                 var top_container = document.getElementById("top_container")
