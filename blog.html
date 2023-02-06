@@ -33,9 +33,17 @@
         <script>
                 var link = location.href
                 // grab the ?... in the link
+                settings = ""
                 specific_TeX_file = ""
+                page_number = 0
                 if (link.includes("?")){
-                        specific_TeX_file = link.substring(link.indexOf("?") + 1, link.length)
+                        settings = link.substring(link.indexOf("?") + 1, link.length)
+
+                        tex_regex = /([0-9]|[A-Z]|[a-z]| )*.tex/
+                        page_number_regex = /page=(0-9)*/
+                        number_regex = /(0-9)*/
+                        specific_TeX_file = tex_regex.exec(settings)
+                        page_number = Number(number_regex.exec(page_number_regex.exec(settings)))
                 }
 
                 var top_container = document.getElementById("top_container")
@@ -44,7 +52,10 @@
                         search_for_tex = />([0-9]|[A-Z]|[a-z]| )*(.tex)</g
                         posts = []
                         f = ""
-                        const limit = 10;
+                        const limit = 1;
+
+                        var start_post = (page_number-1) * limit
+                        var post_end = page_number * limit
                         
                         do{
                                 f = search_for_tex.exec(this.responseText)
@@ -55,7 +66,7 @@
 
                         posts = posts.sort().reverse()
 
-                        for(let i=0;i<Math.min(posts.length, limit);i++){
+                        for(let i=start_post;i<Math.min(posts.length, post_end);i++){
                                 var post_file_name = ""
                                 if (specific_TeX_file != ""){
                                         if (i>0){
