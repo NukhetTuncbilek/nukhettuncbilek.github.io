@@ -115,7 +115,8 @@
                                         first_post = document.getElementById("first_post")
 
                                         if (i==0){//first post
-                                                first_post.innerHTML = big_container
+                                                first_post.innerHTML = ""
+                                                first_post.append(big_container)
                                         } else{
                                                 top_container.append(big_container)
                                         }
