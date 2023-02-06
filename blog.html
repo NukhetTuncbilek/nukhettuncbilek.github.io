@@ -46,7 +46,6 @@
 
                         page_setting = page_number_regex.exec(settings)
                         page_number = Number(page_setting[1])
-                        console.log(page_number)
                 }
 
                 var top_container = document.getElementById("top_container")
@@ -82,6 +81,7 @@
                                         // get rid of the > and <
                                         post_file_name = post_file_name.split(">")[1].split("<")[0]
                                 }
+                                console.log(post_file_name)
                                 var post_req = new XMLHttpRequest;
                                 post_req.onload = function(){
                                         post = this.responseText
