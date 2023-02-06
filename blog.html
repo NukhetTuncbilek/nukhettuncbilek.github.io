@@ -53,6 +53,8 @@
                                 }
                         } while(f)
 
+                        posts.sort(function(a){parseInt(a,10)})
+
                         for(let i=0;i<Math.min(posts.length, limit);i++){
                                 var post_file_name = ""
                                 if (specific_TeX_file != ""){
