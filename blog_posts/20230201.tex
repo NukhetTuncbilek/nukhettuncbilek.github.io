@@ -1,0 +1,29 @@
+February 1, 2023
+---
+Geometry of a Tetrahedron and Heron's Formula
+---
+Here is a worksheet I used in multivariable calculus. I wanted to share it with you because I thought it had a nice proof of Heron's formula.
+Let $A,B,C$ and $D$ be four points on the three-dimensional space such that $ABCD$ is a tetrahedron, not necessarily a regular tetrahedron.
+
+Let  $v_A, v_B, v_C$ and $v_D$ be normal vectors to the sides of the tetrahedron, such that $v_A$ is normal to the opposite triangle $BCD$, $v_B$ is normal to $ACD$, etc. Also let $|v_A|$ be the area of the opposite triangle $BCD$. Similarly, set $|v_B|$, $|v_C|$ and $|v_D|$. Lastly, the vectors point outward, meaning they point to the outside of the tetrahedron. Note that this description defines the vectors $v_A, v_B, v_C$ and $v_D$ exactly.
+
+The goal of this worksheet is to show the following equation $$v_A+v_B+v_C+v_D = 0.$$ 
+
+Question 1: Let $\overset{\rightarrow}{u} = \overset{\rightarrow}{AB}, \overset{\rightarrow}{v} = \overset{\rightarrow}{AC}$ and $\overset{\rightarrow}{w} = \overset{\rightarrow}{AD}.$ 
+
+Show that $\textrm{Area}(ABC) = \frac{|u\times v|}{2}$. Similarly, conclude that $\textrm{Area}(ACD) = \frac{|v\times w|}{2}$ and $\textrm{Area}(ABD) = \frac{|w\times u|}{2}$. 
+
+Using the right hand rule and part (a), conclude that $v_D = \frac{u\times v}{2}$. Similarly, $v_B = \frac{v\times w}{2}$ and $v_C = \frac{w\times u}{2}$. 
+
+Compute $\overset{\rightarrow}{BC}$, $\overset{\rightarrow}{CD}$ and $\overset{\rightarrow}{DB}$ in terms of $\textbf{u}$, $\textbf{v}$ and $\textbf{w}$. 
+
+Take the cross product of any two of the three expressions you found in (c). Show that it is equal to $v_A.$
+
+Using the properties of the cross product, show $$v_A + v_B + v_C + v_D = 0.$$ Some properties of cross product:
+$a\times (b+c) = a\times b + a\times c$ and $(a+b) \times c = a\times c + b\times c.$ (bilinearity 1) 
+$a\times b = - (b\times a).$ (anti-commutativity)
+Let $k$ be a scalar ($k\in \mathbb{R}$). $(ka) \times b = k(a\times b).$ In particular, $(-a)\times b = -(a\times b).$ (bilinearity 2)
+
+Now suppose you have a special tetrahedron that has the following property: the angles $BAC, CAD$ and $DAB$ are all 90 degrees. In this case, show that $$|v_B|^2+|v_C|^2+|v_D|^2 = |v_A|^2.$$ This is called the "three-dimensional Pythagorean Theorem."
+
+This leads to a short proof of Heron's formula by imagining the triangle $BCD$ as the main triangle and solving for the areas of the other triangles in terms of the side lengths of $BCD$.
