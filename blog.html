@@ -71,7 +71,7 @@
 
                         for(let i=start_post;i<Math.min(posts.length, post_end);i++){
                                 var post_file_name = ""
-                                if (!specific_TeX_file){
+                                if (specific_TeX_file != null && specific_TeX_file != ""){
                                         if (i>start_post){
                                                 continue
                                         } else{
