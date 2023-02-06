@@ -77,11 +77,12 @@
                                                post_file_name = specific_TeX_file       
                                         }
                                 } else{
+                                        console.log(posts)
+                                        console.log(i)
                                         post_file_name = posts[i]
                                         // get rid of the > and <
                                         post_file_name = post_file_name.split(">")[1].split("<")[0]
                                 }
-                                console.log(post_file_name)
                                 var post_req = new XMLHttpRequest;
                                 post_req.onload = function(){
                                         post = this.responseText
