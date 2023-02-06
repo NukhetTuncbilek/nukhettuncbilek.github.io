@@ -45,8 +45,7 @@
                         specific_TeX_file = tex_regex.exec(settings)
 
                         page_setting = page_number_regex.exec(settings)
-                        console.log(page_setting)
-                        page_number = Number(page_setting)
+                        page_number = Number(page_setting[1])
                         console.log(page_number)
                 }
 
