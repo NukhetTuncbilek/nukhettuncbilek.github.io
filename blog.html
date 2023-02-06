@@ -59,7 +59,7 @@
                                         if (i>0){
                                                 continue
                                         } else{
-                                               post_file_name = specific_TeX_file 
+                                               post_file_name = specific_TeX_file       
                                         }
                                 } else{
                                         post_file_name = posts[i]
@@ -84,10 +84,14 @@
                                         post = post.split('---')
 
                                         var link_to_post = document.createElement('a')
-                                        
-                                        f=posts[i]
-                                        f = f.split(">")[1].split("<")[0]
-                                        link_to_post.href = "./blog.html?" + f
+
+                                        if (specific_TeX_file == ""){
+                                                f=posts[i]
+                                                f = f.split(">")[1].split("<")[0]
+                                                link_to_post.href = "./blog.html?" + f
+                                        }else{
+                                                link_to_post.href = "./blog.html?" + specific_TeX_file
+                                        }
 
                                         var header = document.createElement('h3')
                                         header.innerHTML = post[0] + ": " + post[1]
