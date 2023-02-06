@@ -103,7 +103,7 @@
 
                                         var link_to_post = document.createElement('a')
 
-                                        if (specific_TeX_file == ""){
+                                        if (specific_TeX_file == "" || specific_TeX_file == null){
                                                 f=posts[i]
                                                 f = f.split(">")[1].split("<")[0]
                                                 link_to_post.href = "./blog.html?" + f
