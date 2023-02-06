@@ -103,13 +103,9 @@
 
                                         var link_to_post = document.createElement('a')
 
-                                        if (specific_TeX_file == "" || specific_TeX_file == null){
-                                                f=posts[i]
-                                                f = f.split(">")[1].split("<")[0]
-                                                link_to_post.href = "./blog.html?" + f
-                                        }else{
-                                                link_to_post.href = "./blog.html?" + specific_TeX_file
-                                        }
+                                        f=posts[i]
+                                        f = f.split(">")[1].split("<")[0]
+                                        link_to_post.href = "./blog.html?" + f
 
                                         var header = document.createElement('h3')
                                         header.innerHTML = post[0] + ": " + post[1]
@@ -130,7 +126,7 @@
                                         big_container.append(small_container)
                                         first_post = document.getElementById("first_post")
 
-                                        if (i==0){//first post
+                                        if (i==start_post){//first post
                                                 first_post.innerHTML = ""
                                                 first_post.append(big_container)
                                         } else{
