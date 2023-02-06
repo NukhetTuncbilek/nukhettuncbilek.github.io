@@ -47,8 +47,7 @@
                         tex_regex = /([0-9]|[A-Z]|[a-z]| )*.tex/
                         page_number_regex = /page=([0-9])*/
                         number_regex = /([0-9])*/
-                        specific_TeX_file = tex_regex.exec(settings)
-                        console.log(specific_TeX_file)
+                        specific_TeX_file = tex_regex.exec(settings)[0]
 
                         page_setting = page_number_regex.exec(settings)
                         page_number = Number(page_setting[1])
