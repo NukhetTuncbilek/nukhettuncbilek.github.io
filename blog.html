@@ -53,10 +53,8 @@
                                 }
                         } while(f)
 
-                        console.log(posts)
-                        posts = posts.sort()
+                        posts = posts.sort().reverse()
 
-                        console.log(posts)
                         for(let i=0;i<Math.min(posts.length, limit);i++){
                                 var post_file_name = ""
                                 if (specific_TeX_file != ""){
