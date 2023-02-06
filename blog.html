@@ -33,9 +33,9 @@
         <script>
                 var link = location.href
                 // grab the ?... in the link
-                specific_TeX_file = link.substring(link.indexOf("?") + 1, link.length)
-                if (!(link.indexOf("?"))){
-                        specific_TeX_file = ""
+                specific_TeX_file = ""
+                if (link.indexOf("?")){
+                        specific_TeX_file = link.substring(link.indexOf("?") + 1, link.length)
                 }
 
                 var top_container = document.getElementById("top_container")
