@@ -90,7 +90,7 @@
 
                         posts = posts.sort().reverse()
 
-                        if (page_number < posts.lengh / 10 + 1){
+                        if (page_number < posts.lengh / limit + 1){
                                 var next_page_link = document.createElement('a')
                                 next_page_link.href = "./blog.html?page=" + String(page_number)
                                 next_page_link.innerHTML = "Page " + String(page_number)
