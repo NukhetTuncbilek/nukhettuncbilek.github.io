@@ -32,7 +32,7 @@
 <div class="container p-3" id="top_container">
         <script>
                 var link = location.href
-                var specific_TeX_file = link.substring(link.indexOf("?") + 1)
+                var specific_TeX_file = link.substring(link.indexOf("?") + 1, link.length-1)
                 console.log(specific_TeX_file)
 
                 var top_container = document.getElementById("top_container")
