@@ -21,6 +21,11 @@
 
 <div class="container p-3" id="first_post_container"> 
         <div class="row">
+                <div class="col-md-4 my-auto text-center" id="previous_page"></div>
+                <div class="col-md-4 my-auto text-center" id="current_page"></div>
+                <div class="col-md-4 my-auto text-center" id="next_page"></div>
+        </div>
+        <div class="row">
                 <div class="col-lg-8 my-auto" id="first_post"><p>Loading...</p></div> 
                 <div class="col-lg-4 my-auto text-center">
                         <img class="rounded-image" src="office.jpeg">
@@ -30,11 +35,6 @@
 </div>
 
 <div class="container p-3" id="top_container">
-        <div class="row">
-                <div class="col-md-4 my-auto text-center" id="previous_page"></div>
-                <div class="col-md-4 my-auto text-center" id="current_page"></div>
-                <div class="col-md-4 my-auto text-center" id="next_page"></div>
-        </div>
         <script>
                 var link = location.href
                 // grab the ?... in the link
