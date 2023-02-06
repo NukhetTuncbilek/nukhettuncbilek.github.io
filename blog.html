@@ -37,6 +37,8 @@
                         search_for_tex = />([0-9]|[A-Z]|[a-z]| )*(.tex)</g
                         posts = []
                         f = ""
+                        const limit = 10;
+                        
                         do{
                                 f = search_for_tex.exec(this.responseText)
                                 if (f){
@@ -44,7 +46,7 @@
                                 }
                         } while(f)
 
-                        for(let i=0;i<posts.length;i++){
+                        for(let i=0;i<Math.min(posts.length, limit);i++){
                                 post_file_name = posts[i]
 
                                 // get rid of the > and <
