@@ -66,8 +66,6 @@
                                         // get rid of the > and <
                                         post_file_name = post_file_name.split(">")[1].split("<")[0]
                                 }
-                                var link_to_post = document.createElement('a')
-                                link_to_post.href = "./blog.html?" + post_file_name
                                 var post_req = new XMLHttpRequest;
                                 post_req.onload = function(){
                                         post = this.responseText
@@ -84,6 +82,12 @@
                                         small_container.className = "container p-3 border"
                                         
                                         post = post.split('---')
+
+                                        var link_to_post = document.createElement('a')
+                                        
+                                        f=posts[i]
+                                        f = f.split(">")[1].split("<")[0]
+                                        link_to_post.href = "./blog.html?" + f
 
                                         var header = document.createElement('h3')
                                         header.innerHTML = post[0] + ": " + post[1]
