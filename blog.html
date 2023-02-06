@@ -69,11 +69,15 @@
                                         var header = document.createElement('h3')
                                         header.innerHTML = post[0] + ": " + post[1]
 
-                                        var p = document.createElement("p")
-                                        p.innerHTML = post[2]
-
                                         small_container.append(header)
-                                        small_container.append(p)
+
+                                        paragraphs = post[2].split("\n")
+                                        while(paragraphs.length > 0){
+                                                var p = document.createElement("p")
+                                                p.innerHTML = paragraphs.pop()
+                                                small_container.append(p)
+                                        } 
+
                                         big_container.append(small_container)
                                         first_post = document.getElementById("first_post")
 
