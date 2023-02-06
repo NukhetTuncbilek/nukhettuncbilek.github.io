@@ -69,7 +69,7 @@
                         for(let i=start_post;i<Math.min(posts.length, post_end);i++){
                                 var post_file_name = ""
                                 if (specific_TeX_file != ""){
-                                        if (i>0){
+                                        if (i>start_post){
                                                 continue
                                         } else{
                                                post_file_name = specific_TeX_file       
@@ -112,7 +112,6 @@
                                         link_to_post.append(header)
                                         small_container.append(link_to_post)
 
-                                        console.log(post)
                                         paragraphs = post[2].split("\n")
                                         while(paragraphs.length > 0){
                                                 var p = document.createElement("p")
