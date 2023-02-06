@@ -21,7 +21,7 @@
 
 <div class="container p-3" id="first_post_container"> 
         <div class="row">
-                <div class="col-lg-8 my-auto" id="first_post">Loading...</div> 
+                <div class="col-lg-8 my-auto" id="first_post"><p>Loading...</p></div> 
                 <div class="col-lg-4 my-auto text-center">
                         <img class="rounded-image" src="office.jpeg">
                         <div class="container text-center"><p id="caption">My desk at Van Vleck Hall. </p></div>
@@ -115,7 +115,7 @@
                                         first_post = document.getElementById("first_post")
 
                                         if (i==0){//first post
-                                                first_post.append(big_container)
+                                                first_post.innerHTML = big_container
                                         } else{
                                                 top_container.append(big_container)
                                         }
