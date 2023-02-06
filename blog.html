@@ -64,8 +64,15 @@
                                         big_container.className = "container p-3"
                                         small_container.className = "container p-3 border"
                                         
+                                        post = post.split('---')
+
+                                        var header = document.createElement('h3')
+                                        header.innerHTML = post[0] + ": " + post[1]
+
                                         var p = document.createElement("p")
-                                        p.innerHTML = post
+                                        p.innerHTML = post[2]
+
+                                        small_container.append(header)
                                         small_container.append(p)
                                         big_container.append(small_container)
                                         first_post = document.getElementById("first_post")
