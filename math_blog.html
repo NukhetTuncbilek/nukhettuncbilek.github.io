@@ -27,7 +27,7 @@
         </div>
         <div class="row">
                 <div class="col-lg-8 my-auto" id="first_post"><p>Loading...</p></div> 
-                <div class="col-lg-4 my-auto text-center">
+                <div class="col-lg-4 my-auto text-center" id="photo_container">
                         <img class="rounded-image" src="office.jpeg">
                         <div class="container text-center"><p id="caption">My desk at Van Vleck Hall. </p></div>
                 </div>
@@ -106,7 +106,11 @@
                                         if (i>start_post){
                                                 continue
                                         } else{
-                                               post_file_name = specific_TeX_file       
+                                               post_file_name = specific_TeX_file 
+                                               
+                                               // get rid of the photo
+                                               document.getElementById("first_post").className = "col-lg-12 my-auto"
+                                               document.getElementById("photo_container").remove()
                                         }
                                 } else{
                                         console.log(posts)
