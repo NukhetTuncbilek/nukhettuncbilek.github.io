@@ -1,7 +1,0 @@
-February 2, 2023
----
-My Solution to Exercise 9.2 of Brian Hall's Lie Theory Book
----
-
-Chapter 9, Exercise 2: Suppose that $\mathfrak{g} \subset M_n(\mathbb{C})$ is a Lie algebra of matrices (with bracket given by $XY-YX$). Prove, without appealing to the PBW theorem, that the map $i:\mathfrak{g}\to U(\mathfrak{g})$ in Theorem 9.7 is injective.
-Proof: We will use the universal property of the universal enveloping algebra. Apply Theorem 9.7 where the associative algebra with identity is $M_n(\mathbb{C})$ which contains $\mathfrak{g}$. The map $j:\mathfrak{g}\to M_n(\mathbb{C})$ is the inclusion. Therefore, there exists a unique algebra homomorphism $\phi: U(\mathfrak{g}) \to M_n(\mathbb{C})$ such that $\phi(i(X)) = j(X)$ for all $X\in \mathfrak{g}$. This fact implies that $i$ is injective because if $i(X) = i(Y)$, then $j(X) = \phi(i(X)) = \phi(i(Y)) = j(Y)$ which implies $X=Y$.
