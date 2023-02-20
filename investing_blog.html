@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en">
+        <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title> Math Blog </title>
+                <link rel="stylesheet" href="style.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        </head>
+
+<body>
+
+<div class="container-fluid bg-dark">
+        <div class="container p-3 text-white text-center">
+                <h1>Yunus Tunçbilek </h1>
+                <p>tuncbilek@wisc.edu</p>
+                <a class="homelink" href="https://people.math.wisc.edu/~tuncbilek/">Go to the home page</a>
+        </div>
+</div>
+
+<div class="container p-3" id="first_post_container"> 
+        <div class="row">
+                <div class="col-md-4 my-auto text-center" id="previous_page"></div>
+                <div class="col-md-4 my-auto text-center" id="current_page"></div>
+                <div class="col-md-4 my-auto text-center" id="next_page"></div>
+        </div>
+        <div class="row">
+                <div class="col-lg-8 my-auto" id="first_post"><p>Loading...</p></div> 
+                <div class="col-lg-4 my-auto text-center">
+                        <img class="rounded-image" src="business_sunday_thumbnail.png">
+                        <div class="container text-center"><p id="caption">New posts will come out on Sundays, once every month.</p></div>
+                </div>
+        </div>
+</div>
+
+<div class="container p-3" id="top_container">
+        <script>
+                var link = location.href
+                // grab the ?... in the link
+                settings = ""
+                specific_TeX_file = ""
+                page_number = 1
+                if (link.includes("?")){
+                        settings = link.substring(link.indexOf("?") + 1, link.length)
+
+                        tex_regex = /([0-9]|[A-Z]|[a-z]| )*.tex/
+                        page_number_regex = /page=([0-9])*/
+                        number_regex = /([0-9])*/
+                        tex_setting = tex_regex.exec(settings)
+                        if (tex_setting){
+                                specific_TeX_file = tex_setting[0]
+                        }
+                        page_setting = page_number_regex.exec(settings)
+                        if (page_setting){
+                                page_number = Number(page_setting[1])
+                        }
+                }
+
+                var top_container = document.getElementById("top_container")
+                var previous_page_div = document.getElementById("previous_page")
+                var current_page_div = document.getElementById("current_page")
+                var next_page_div = document.getElementById("next_page")
+
+                if (page_number > 1){
+                        var previous_page_link = document.createElement('a')
+                        previous_page_link.href = "./blog.html?page=" + String(page_number - 1)
+                        previous_page_link.innerHTML = "Previous Page: Page " + String(page_number - 1)
+                        previous_page_div.append(previous_page_link)
+                }
+                
+                var current_page_link = document.createElement('a')
+                current_page_link.href = "./blog.html?page=" + String(page_number)
+                current_page_link.innerHTML = "Page " + String(page_number)
+                current_page_div.append(current_page_link)
+
+                var req = new XMLHttpRequest;
+                req.onload = function(){
+                        search_for_tex = />([0-9]|[A-Z]|[a-z]| )*(.tex)</g
+                        posts = []
+                        f = ""
+                        const limit = 10;
+
+                        var start_post = (page_number-1) * limit
+                        var post_end = page_number * limit
+                        
+                        do{
+                                f = search_for_tex.exec(this.responseText)
+                                if (f){
+                                        posts.push(f[0])
+                                }
+                        } while(f)
+
+                        posts = posts.sort().reverse()
+
+                        if (page_number < Math.floor((posts.length - 1) / limit) + 1){
+                                var next_page_link = document.createElement('a')
+                                next_page_link.href = "./blog.html?page=" + String(page_number+1)
+                                next_page_link.innerHTML = "Next Page: Page " + String(page_number+1)
+                                next_page_div.append(next_page_link)
+                        }
+                        
+                        for(let i=start_post;i<Math.min(posts.length, post_end);i++){
+                                var post_file_name = ""
+                                if (specific_TeX_file != null && specific_TeX_file != ""){
+                                        if (i>start_post){
+                                                continue
+                                        } else{
+                                               post_file_name = specific_TeX_file       
+                                        }
+                                } else{
+                                        console.log(posts)
+                                        console.log(i)
+                                        post_file_name = posts[i]
+                                        // get rid of the > and <
+                                        post_file_name = post_file_name.split(">")[1].split("<")[0]
+                                }
+                                var post_req = new XMLHttpRequest;
+                                post_req.onload = function(){
+                                        post = this.responseText
+
+                                        // below code replaces $...$ with \(...\)
+                                        post = post.split(/\$\$/).reduce( (a,b,i) => i %2 == 0 ? a + "\\]" + b : a + "\\[" + b )
+                                        post = post.split(/\$/).reduce( (a,b,i) => i %2 == 0 ? a + "\\)" + b : a + "\\(" + b )
+
+                                        // create containers that TeX will go in
+                                        // small/big container helps borders to be separated
+                                        var big_container = document.createElement("div")
+                                        var small_container = document.createElement("div")
+                                        big_container.className = "container p-3"
+                                        small_container.className = "container p-3 border"
+                                        
+                                        post = post.split('---')
+
+                                        var link_to_post = document.createElement('a')
+
+                                        f=posts[i]
+                                        f = f.split(">")[1].split("<")[0]
+                                        link_to_post.href = "./blog.html?" + f
+
+                                        if (specific_TeX_file != null && specific_TeX_file != ""){
+                                                link_to_post.href = "./blog.html?" + specific_TeX_file
+                                        }
+
+                                        var header = document.createElement('h3')
+                                        header.innerHTML = post[0] + ": " + post[1]
+
+                                        link_to_post.append(header)
+                                        small_container.append(link_to_post)
+
+                                        paragraphs = post[2].split("\n")
+                                        while(paragraphs.length > 0){
+                                                var p = document.createElement("p")
+                                                p.innerHTML = paragraphs.shift()
+
+                                                if (p.innerHTML != ""){
+                                                        small_container.append(p)
+                                                }
+                                        } 
+
+                                        big_container.append(small_container)
+                                        first_post = document.getElementById("first_post")
+
+                                        if (i==start_post){//first post
+                                                first_post.innerHTML = ""
+                                                first_post.append(big_container)
+                                        } else{
+                                                top_container.append(big_container)
+                                        }
+
+                                        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                                }
+
+                                post_req.open("GET", "investing_blog_posts/"+post_file_name)
+                                post_req.send()
+                        }
+                }
+
+                req.open("GET", "investing_blog_posts/?C=M;O=D")
+                req.send()
+        </script>
+</div>
+
+<div class="container-fluid bg-dark"> 
+        <div class="container p-3 text-white">
+                <p>Copyright 2021-2023 Yunus Tunçbilek</p> 
+        </div>
+</div>
+
+</html>
