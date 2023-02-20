@@ -27,7 +27,7 @@
         </div>
         <div class="row">
                 <div class="col-lg-6 my-auto" id="first_post"><p>Loading...</p></div> 
-                <div class="col-lg-6 my-auto text-center">
+                <div class="col-lg-6 my-auto text-center" id="photo_container">
                         <img class="rounded-image" src="business_sunday_thumbnail.png">
                         <div class="container text-center"><p id="caption">New posts will come out on Sundays, about once every month.</p></div>
                 </div>
@@ -107,6 +107,10 @@
                                                 continue
                                         } else{
                                                post_file_name = specific_TeX_file       
+                                        
+                                                //get rid of the photo
+                                               document.getElementById("first_post").className = "col-lg-12 my-auto"
+                                               document.getElementById("photo_container").remove()
                                         }
                                 } else{
                                         console.log(posts)
