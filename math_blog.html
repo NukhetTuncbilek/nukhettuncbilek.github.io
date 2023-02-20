@@ -64,13 +64,13 @@
 
                 if (page_number > 1){
                         var previous_page_link = document.createElement('a')
-                        previous_page_link.href = "./blog.html?page=" + String(page_number - 1)
+                        previous_page_link.href = "./math_blog.html?page=" + String(page_number - 1)
                         previous_page_link.innerHTML = "Previous Page: Page " + String(page_number - 1)
                         previous_page_div.append(previous_page_link)
                 }
                 
                 var current_page_link = document.createElement('a')
-                current_page_link.href = "./blog.html?page=" + String(page_number)
+                current_page_link.href = "./math_blog.html?page=" + String(page_number)
                 current_page_link.innerHTML = "Page " + String(page_number)
                 current_page_div.append(current_page_link)
 
@@ -95,7 +95,7 @@
 
                         if (page_number < Math.floor((posts.length - 1) / limit) + 1){
                                 var next_page_link = document.createElement('a')
-                                next_page_link.href = "./blog.html?page=" + String(page_number+1)
+                                next_page_link.href = "./math_blog.html?page=" + String(page_number+1)
                                 next_page_link.innerHTML = "Next Page: Page " + String(page_number+1)
                                 next_page_div.append(next_page_link)
                         }
@@ -136,10 +136,10 @@
 
                                         f=posts[i]
                                         f = f.split(">")[1].split("<")[0]
-                                        link_to_post.href = "./blog.html?" + f
+                                        link_to_post.href = "./math_blog.html?" + f
 
                                         if (specific_TeX_file != null && specific_TeX_file != ""){
-                                                link_to_post.href = "./blog.html?" + specific_TeX_file
+                                                link_to_post.href = "./math_blog.html?" + specific_TeX_file
                                         }
 
                                         var header = document.createElement('h3')
