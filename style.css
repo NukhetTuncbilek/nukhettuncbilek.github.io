@@ -55,7 +55,3 @@ div.container {
 div.container.blog_post {
   max-width: 850px;
 }
-
-div.col-lg-12.blog_post {
-  max-width: 850px;
-}
