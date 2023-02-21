@@ -52,6 +52,10 @@ div.container {
   border-radius: 15px;
 }
 
-#top_container {
-  max-width: 700px;
+div.container.blog_post {
+  max-width: 850px;
+}
+
+div.col-lg-12.blog_post {
+  max-width: 850px;
 }
