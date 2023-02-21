@@ -109,7 +109,7 @@
                                                post_file_name = specific_TeX_file       
                                         
                                                 //get rid of the photo
-                                               document.getElementById("first_post").className = "col-lg-12 my-auto"
+                                               document.getElementById("first_post").className = "col-lg-12 blog_post my-auto"
                                                document.getElementById("photo_container").remove()
                                         }
                                 } else{
@@ -131,7 +131,7 @@
                                         // small/big container helps borders to be separated
                                         var big_container = document.createElement("div")
                                         var small_container = document.createElement("div")
-                                        big_container.className = "container p-3"
+                                        big_container.className = "container blog_post p-3"
                                         small_container.className = "container p-3 border"
                                         
                                         post = post.split('---')
