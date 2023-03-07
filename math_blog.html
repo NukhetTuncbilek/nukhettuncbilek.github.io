@@ -45,8 +45,8 @@
                         settings = link.substring(link.indexOf("?") + 1, link.length)
 
                         tex_regex = /([0-9]|[A-Z]|[a-z]| )*.tex/
-                        page_number_regex = /page=([0-9])*/
-                        number_regex = /([0-9])*/
+                        page_number_regex = /page=\d+/
+                        number_regex = /\d+/
                         tex_setting = tex_regex.exec(settings)
                         if (tex_setting){
                                 specific_TeX_file = tex_setting[0]
@@ -54,7 +54,7 @@
                         page_setting = page_number_regex.exec(settings)
                         console.log(page_setting)
                         if (page_setting){
-                                page_number = Number(page_setting[1])
+                                page_number = Number(number_regex.exec(page_setting))
                         }
                 }
 
